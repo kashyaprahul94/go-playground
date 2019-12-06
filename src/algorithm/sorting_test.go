@@ -3,7 +3,7 @@ package algorithm
 import (
 	"testing"
 
-	"github.com/kashyaprahul94/playground/util"
+	"github.com/kashyaprahul94/go-playground/src/util"
 )
 
 func assertResult(t *testing.T, expected, received []int) {

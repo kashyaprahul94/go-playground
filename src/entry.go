@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/kashyaprahul94/playground/algorithm"
+	"github.com/kashyaprahul94/go-playground/src/algorithm"
 )
 
 func main() {
