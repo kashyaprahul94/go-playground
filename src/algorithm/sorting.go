@@ -28,9 +28,7 @@ func (b BubbleSort) Sort() []int {
 	for i := length; i > 0; i-- {
 		for j := 1; j < i; j++ {
 			if numbers[j-1] > numbers[j] {
-				intermediate := numbers[j]
-				numbers[j] = numbers[j-1]
-				numbers[j-1] = intermediate
+				numbers[j], numbers[j-1] = numbers[j-1], numbers[j]
 			}
 		}
 	}
@@ -63,9 +61,7 @@ func (s SelectionSort) Sort() []int {
 		}
 
 		if minimumIndex != i {
-			temp := numbers[i]
-			numbers[i] = numbers[minimumIndex]
-			numbers[minimumIndex] = temp
+			numbers[i], numbers[minimumIndex] = numbers[minimumIndex], numbers[i]
 		}
 	}
 
