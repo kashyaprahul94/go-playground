@@ -1,10 +1,20 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/kashyaprahul94/go-playground/pkg/algorithm"
 )
 
 func main() {
+	if err := run(); err != nil {
+		log.Println("error :", err)
+		os.Exit(1)
+	}
+}
+
+func run() error {
 
 	list := algorithm.SinglyLinkedList()
 
@@ -17,4 +27,5 @@ func main() {
 
 	list.Print()
 
+	return nil
 }
