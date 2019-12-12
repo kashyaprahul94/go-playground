@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -25,7 +26,7 @@ func run() error {
 	list.Push(12.2)
 	list.Push("s")
 
-	list.Print()
+	fmt.Println(list)
 
 	return nil
 }
