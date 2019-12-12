@@ -5,21 +5,21 @@ import "fmt"
 // Item is the kind of item to be stored
 type Item interface{}
 
-// node is awesome too
-type node struct {
+// linkedNode is awesome too
+type linkedNode struct {
 	value Item
-	next  *node
+	next  *linkedNode
 }
 
-// list is awesome too
-type list struct {
-	head *node
+// LinkedList is awesome too
+type LinkedList struct {
+	head *linkedNode
 }
 
-func push(l *list, nodeToInsert *node) {
+func push(l *LinkedList, node *linkedNode) {
 
 	if l.head == nil {
-		l.head = nodeToInsert
+		l.head = node
 	} else {
 
 		currentNode := l.head
@@ -28,35 +28,37 @@ func push(l *list, nodeToInsert *node) {
 			currentNode = currentNode.next
 		}
 
-		currentNode.next = nodeToInsert
+		currentNode.next = node
 	}
 }
 
 // Push is used to insert element at the end of the list
-func (l *list) Push(element Item) {
-	newNode := &node{value: element, next: nil}
+func (l *LinkedList) Push(element Item) {
+	node := &linkedNode{value: element, next: nil}
 
-	push(l, newNode)
+	push(l, node)
 }
 
 // Print is used to print the contents of list
-func (l *list) Print() {
+func (l *LinkedList) String() string {
+
+	result := ""
+
 	head := l.head
 
-	fmt.Printf("\nHead")
+	result += fmt.Sprintf("\nHead")
 
 	for head != nil {
-		fmt.Printf(" -> %v", head.value)
+		result += fmt.Sprintf(" -> %v", head.value)
 		head = head.next
 	}
 
-	fmt.Print(" -> nil\n\n")
+	result += fmt.Sprintf(" -> nil\n")
+
+	return result
 }
 
 // SinglyLinkedList is awesome
-func SinglyLinkedList() *list {
-
-	newList := new(list)
-
-	return &(*(newList))
+func SinglyLinkedList() *LinkedList {
+	return &LinkedList{head: nil}
 }
