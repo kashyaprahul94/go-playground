@@ -1,6 +1,8 @@
 package main
 
-import "github.com/kashyaprahul94/go-playground/pkg/algorithm"
+import (
+	"github.com/kashyaprahul94/go-playground/pkg/algorithm"
+)
 
 func main() {
 
@@ -14,4 +16,5 @@ func main() {
 	list.Push("s")
 
 	list.Print()
+
 }
