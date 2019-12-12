@@ -1,6 +1,6 @@
 package algorithm
 
-import "github.com/kashyaprahul94/go-playground/src/util"
+import "github.com/kashyaprahul94/go-playground/pkg/util"
 
 // Sorter is the common interface that each sorting technique should adhere to
 type Sorter interface {
