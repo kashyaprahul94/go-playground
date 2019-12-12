@@ -21,7 +21,7 @@ func CompareSlices(a, b []int) bool {
 func CloneArray(input []int) []int {
 
 	length := len(input)
-	numbers := make([]int, length, length)
+	numbers := make([]int, length)
 
 	for i := 0; i < length; i++ {
 		numbers[i] = input[i]
