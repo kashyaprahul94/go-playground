@@ -51,8 +51,8 @@ func TestHealthCheckHandler(t *testing.T) {
 		{name: "Not Implemented", request: patchRequest, expectedBody: `{"message": "method not allowed"}`, expectedStatus: http.StatusMethodNotAllowed},
 	}
 
-	server := &Server{}
-	handler := http.HandlerFunc(server.ServeHTTP)
+	r := GetRouter()
+	handler := http.HandlerFunc(r.ServeHTTP)
 
 	for _, tt := range webServerTests {
 
