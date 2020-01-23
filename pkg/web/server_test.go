@@ -26,7 +26,7 @@ func assertBody(t *testing.T, expected, received string) {
 
 }
 
-func TestHealthCheckHandler(t *testing.T) {
+func TestWebServer(t *testing.T) {
 
 	getRequest, err := http.NewRequest("GET", "/", nil)
 	postRequest, err := http.NewRequest("POST", "/", nil)
