@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/kashyaprahul94/go-playground/pkg/algorithm"
+	"github.com/kashyaprahul94/go-playground/pkg/web"
 )
 
 func main() {
@@ -15,8 +16,7 @@ func main() {
 	}
 }
 
-func run() error {
-
+func algos() {
 	list := algorithm.SinglyLinkedList()
 
 	list.Push(4)
@@ -27,6 +27,17 @@ func run() error {
 	list.Push("s")
 
 	fmt.Println(list)
+}
+
+func webStuff() {
+	web.StartServer()
+}
+
+func run() error {
+
+	// algos()
+
+	webStuff()
 
 	return nil
 }
