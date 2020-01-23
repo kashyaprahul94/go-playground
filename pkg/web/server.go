@@ -3,7 +3,6 @@ package web
 import (
 	"log"
 	"net/http"
-	"strconv"
 	"strings"
 
 	"github.com/gorilla/mux"
@@ -54,14 +53,14 @@ func GetRouter() *mux.Router {
 }
 
 // StartServer will start listening
-func StartServer(port int) {
+func StartServer(port string) {
 
-	addr := []string{"", strconv.Itoa(port)}
+	addr := []string{"", port}
 
 	r := GetRouter()
 	http.Handle("/", r)
 
-	log.Printf("> Server stated ---> http://localhost:%d", port)
-	log.Fatal(http.ListenAndServe(strings.Join(addr, ":"), nil))
+	log.Printf("> Server stated ---> http://localhost:%v", port)
 
+	log.Fatal(http.ListenAndServe(strings.Join(addr, ":"), nil))
 }
