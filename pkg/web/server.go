@@ -3,6 +3,7 @@ package web
 import (
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/gorilla/mux"
@@ -42,6 +43,7 @@ func notAllowed(w http.ResponseWriter, r *http.Request) {
 func GetRouter() *mux.Router {
 
 	r := mux.NewRouter()
+
 	r.HandleFunc("/", get).Methods(http.MethodGet)
 	r.HandleFunc("/", post).Methods(http.MethodPost)
 	r.HandleFunc("/", put).Methods(http.MethodPut)
@@ -52,14 +54,14 @@ func GetRouter() *mux.Router {
 }
 
 // StartServer will start listening
-func StartServer() {
-	// s := &Server{}
+func StartServer(port int) {
 
-	port := "4444"
-	addr := []string{"", port}
+	addr := []string{"", strconv.Itoa(port)}
 
 	r := GetRouter()
 	http.Handle("/", r)
 
+	log.Printf("> Server stated ---> http://localhost:%d", port)
 	log.Fatal(http.ListenAndServe(strings.Join(addr, ":"), nil))
+
 }

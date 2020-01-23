@@ -30,13 +30,14 @@ func algos() {
 }
 
 func webStuff() {
-	web.StartServer()
+	port := 4444
+
+	web.StartServer(port)
 }
 
 func run() error {
 
 	// algos()
-
 	webStuff()
 
 	return nil
