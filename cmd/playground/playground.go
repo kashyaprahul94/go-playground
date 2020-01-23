@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 
 	"github.com/kashyaprahul94/go-playground/pkg/algorithm"
 	"github.com/kashyaprahul94/go-playground/pkg/web"
@@ -30,7 +31,11 @@ func algos() {
 }
 
 func webStuff() {
-	port := 4444
+	port, err := strconv.Atoi(os.Getenv("PORT"))
+
+	if err != nil {
+		port = 4444
+	}
 
 	web.StartServer(port)
 }
