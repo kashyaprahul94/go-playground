@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/kashyaprahul94/go-playground/pkg/algorithm"
+	datamodel "github.com/kashyaprahul94/go-playground/pkg/data-model"
 	"github.com/kashyaprahul94/go-playground/pkg/web"
 )
 
@@ -39,10 +40,16 @@ func webStuff() {
 	web.StartServer(port)
 }
 
+func dataModels() {
+
+	datamodel.PlayWithJSON()
+}
+
 func run() error {
 
 	// algos()
-	webStuff()
+	// webStuff()
+	dataModels()
 
 	return nil
 }
