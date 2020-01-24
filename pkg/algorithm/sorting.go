@@ -23,7 +23,7 @@ type BubbleSort struct {
 func (b BubbleSort) Sort() []int {
 
 	length := len(b.Numbers)
-	numbers := util.CloneArray(b.Numbers)
+	numbers := util.CloneSlice(b.Numbers)
 
 	for i := length; i > 0; i-- {
 		for j := 1; j < i; j++ {
@@ -49,7 +49,7 @@ type SelectionSort struct {
 func (s SelectionSort) Sort() []int {
 
 	length := len(s.Numbers)
-	numbers := util.CloneArray(s.Numbers)
+	numbers := util.CloneSlice(s.Numbers)
 
 	for i := 0; i < length; i++ {
 		minimumIndex := i
@@ -81,7 +81,7 @@ type InsertionSort struct {
 func (i InsertionSort) Sort() []int {
 
 	length := len(i.Numbers)
-	numbers := util.CloneArray(i.Numbers)
+	numbers := util.CloneSlice(i.Numbers)
 
 	for i := 1; i < length; i++ {
 

@@ -17,8 +17,8 @@ func CompareSlices(a, b []int) bool {
 	return true
 }
 
-// CloneArray can be used to create clone numbers
-func CloneArray(input []int) []int {
+// CloneSlice can be used to create clone numbers
+func CloneSlice(input []int) []int {
 
 	length := len(input)
 	numbers := make([]int, length)
