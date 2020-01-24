@@ -24,9 +24,9 @@ func TestSortings(t *testing.T) {
 		method   Sorter
 		expected []int
 	}{
-		{name: "BubbleSort", method: BubbleSort{Numbers: basicCaseInput}, expected: basicCaseExpected},
-		{name: "SelectionSort", method: SelectionSort{Numbers: basicCaseInput}, expected: basicCaseExpected},
-		{name: "InsertionSort", method: InsertionSort{Numbers: basicCaseInput}, expected: basicCaseExpected},
+		{name: "BubbleSort", method: &BubbleSort{Numbers: basicCaseInput}, expected: basicCaseExpected},
+		{name: "SelectionSort", method: &SelectionSort{Numbers: basicCaseInput}, expected: basicCaseExpected},
+		{name: "InsertionSort", method: &InsertionSort{Numbers: basicCaseInput}, expected: basicCaseExpected},
 	}
 
 	for _, tt := range sortingTests {

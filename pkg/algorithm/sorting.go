@@ -20,7 +20,7 @@ type BubbleSort struct {
 }
 
 // Sort helps to sort
-func (b BubbleSort) Sort() []int {
+func (b *BubbleSort) Sort() []int {
 
 	length := len(b.Numbers)
 	numbers := util.CloneSlice(b.Numbers)
@@ -46,7 +46,7 @@ type SelectionSort struct {
 }
 
 // Sort helps to sort
-func (s SelectionSort) Sort() []int {
+func (s *SelectionSort) Sort() []int {
 
 	length := len(s.Numbers)
 	numbers := util.CloneSlice(s.Numbers)
@@ -78,7 +78,7 @@ type InsertionSort struct {
 }
 
 // Sort helps to sort
-func (i InsertionSort) Sort() []int {
+func (i *InsertionSort) Sort() []int {
 
 	length := len(i.Numbers)
 	numbers := util.CloneSlice(i.Numbers)
