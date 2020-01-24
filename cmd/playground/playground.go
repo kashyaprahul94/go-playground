@@ -19,6 +19,17 @@ func main() {
 }
 
 func algos() {
+
+	// Sorting
+
+	sorter := algorithm.BubbleSort{Numbers: []int{4, 3, 1, 5, 2}}
+	sortingResult := sorter.Sort()
+
+	fmt.Printf("%v", sortingResult)
+	fmt.Println()
+
+	// LinkedList
+
 	list := algorithm.SinglyLinkedList()
 
 	list.Push(4)
