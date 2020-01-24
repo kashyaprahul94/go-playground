@@ -3,7 +3,12 @@ package web
 import (
 	"net/http"
 	"net/http/httptest"
+	"strings"
 	"testing"
+
+	"github.com/kashyaprahul94/go-playground/pkg/web/common"
+	"github.com/kashyaprahul94/go-playground/pkg/web/mux"
+	"github.com/kashyaprahul94/go-playground/pkg/web/native"
 )
 
 func assertStatusCode(t *testing.T, expected, received int) {
@@ -51,18 +56,33 @@ func TestWebServer(t *testing.T) {
 		{name: "Not Implemented", request: patchRequest, expectedBody: `{"message": "method not allowed"}`, expectedStatus: http.StatusMethodNotAllowed},
 	}
 
-	r := GetRouter()
-	handler := http.HandlerFunc(r.ServeHTTP)
+	strategies := []struct {
+		name   string
+		server common.Server
+	}{
+		{name: "Native", server: native.GetHandler()},
+		{name: "Mux", server: mux.GetHandler()},
+	}
 
-	for _, tt := range webServerTests {
+	for _, s := range strategies {
 
-		t.Run(tt.name, func(t *testing.T) {
+		t.Run(s.name, func(ttt *testing.T) {
 
-			rr := httptest.NewRecorder()
-			handler.ServeHTTP(rr, tt.request)
+			handler := http.HandlerFunc(s.server.ServeHTTP)
 
-			assertStatusCode(t, tt.expectedStatus, rr.Code)
-			assertBody(t, tt.expectedBody, rr.Body.String())
+			for _, tt := range webServerTests {
+
+				testName := strings.Join([]string{s.name, tt.name}, "/")
+
+				t.Run(testName, func(t *testing.T) {
+
+					rr := httptest.NewRecorder()
+					handler.ServeHTTP(rr, tt.request)
+
+					assertStatusCode(t, tt.expectedStatus, rr.Code)
+					assertBody(t, tt.expectedBody, rr.Body.String())
+				})
+			}
 		})
 	}
 
