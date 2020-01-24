@@ -7,7 +7,8 @@ import (
 
 	"github.com/kashyaprahul94/go-playground/pkg/algorithm"
 	datamodel "github.com/kashyaprahul94/go-playground/pkg/data-model"
-	"github.com/kashyaprahul94/go-playground/pkg/web"
+	_ "github.com/kashyaprahul94/go-playground/pkg/web/mux"
+	_ "github.com/kashyaprahul94/go-playground/pkg/web/native"
 )
 
 func main() {
@@ -37,7 +38,8 @@ func webStuff() {
 		port = "4444"
 	}
 
-	web.StartServer(port)
+	// native.StartServer(port)
+	// mux.StartServer(port)
 }
 
 func dataModels() {
@@ -49,7 +51,7 @@ func run() error {
 
 	// algos()
 	// webStuff()
-	dataModels()
+	// dataModels()
 
 	return nil
 }
