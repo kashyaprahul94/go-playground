@@ -21,9 +21,9 @@ type Address struct {
 // PlayWithJSON like a king
 func PlayWithJSON() {
 
-	address := Address{Street: "Alexanderstraße 5", Zip: "10178"}
+	address := &Address{Street: "Alexanderstraße 5", Zip: "10178"}
 
-	john := User{Name: "John", Age: 25, Address: address}
+	john := &User{Name: "John", Age: 25, Address: *address}
 
 	johnToJSON, _ := json.Marshal(john)
 
