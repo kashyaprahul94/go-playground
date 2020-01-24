@@ -1,4 +1,4 @@
-package web
+package mux
 
 import (
 	"log"
@@ -6,6 +6,8 @@ import (
 	"strings"
 
 	"github.com/gorilla/mux"
+
+	"github.com/kashyaprahul94/go-playground/pkg/web/common"
 )
 
 func get(w http.ResponseWriter, r *http.Request) {
@@ -38,8 +40,8 @@ func notAllowed(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(`{"message": "method not allowed"}`))
 }
 
-// GetRouter returns the router instance for all the paths handled
-func GetRouter() *mux.Router {
+// GetHandler returns the router instance for all the paths handled
+func GetHandler() common.Server {
 
 	r := mux.NewRouter()
 
@@ -57,8 +59,7 @@ func StartServer(port string) {
 
 	addr := []string{"", port}
 
-	r := GetRouter()
-	http.Handle("/", r)
+	http.Handle("/", GetHandler())
 
 	log.Printf("> Server stated ---> http://localhost:%v", port)
 
